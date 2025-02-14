@@ -1,62 +1,66 @@
 package com.weatherapp.myweatherapp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import java.util.List;
 
+@Data
 public class CityInfo {
 
+  // Represents the weather data for a city
   @JsonProperty("address")
-  String address;
+  private String address;
 
   @JsonProperty("description")
-  String description;
+  private String description;
 
   @JsonProperty("currentConditions")
-  CurrentConditions currentConditions;
+  private CurrentConditions currentConditions;
 
   @JsonProperty("days")
-  List<Days> days;
+  private List<Days> days;
 
-  static class CurrentConditions {
+  @Data
+  public static class CurrentConditions {
+    // Represents the current weather conditions
     @JsonProperty("temp")
-    String currentTemperature;
+    private String currentTemperature;
 
     @JsonProperty("sunrise")
-    String sunrise;
+    private String sunrise;
 
     @JsonProperty("sunset")
-    String sunset;
+    private String sunset;
 
     @JsonProperty("feelslike")
-    String feelslike;
+    private String feelslike;
 
     @JsonProperty("humidity")
-    String humidity;
+    private String humidity;
 
     @JsonProperty("conditions")
-    String conditions;
+    private String conditions;
   }
 
-  static class Days {
-
+  @Data
+  public static class Days {
+    // Represents the weather conditions for a specific day
     @JsonProperty("datetime")
-    String date;
+    private String date;
 
     @JsonProperty("temp")
-    String currentTemperature;
+    private String currentTemperature;
 
     @JsonProperty("tempmax")
-    String maxTemperature;
+    private String maxTemperature;
 
     @JsonProperty("tempmin")
-    String minTemperature;
+    private String minTemperature;
 
     @JsonProperty("conditions")
-    String conditions;
+    private String conditions;
 
     @JsonProperty("description")
-    String description;
-
+    private String description;
   }
-
 }
